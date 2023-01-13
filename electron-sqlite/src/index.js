@@ -4,7 +4,7 @@ const path = require('path');
 /* const Database = require('better-sqlite3');
 const db = new Database('database.sqlite', { verbose: console.log }) */
 
-const db = require('better-sqlite3')('database.sqlite', { verbose: console.log });
+const db = require('better-sqlite3')('database.sqlite3', { verbose: console.log });
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
