@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <h1>💖 Hello World!</h1>
+  <p>Welcome to your Electron application.</p>
+  <script>
+    function addParagraph(text) {
+      const p = document.createElement("p");
+      const node = document.createTextNode(text);
+      p.appendChild(node);
+      document.body.appendChild(p);
+    }
+    window.api.executeQuery("CREATE TABLE IF NOT EXISTS test (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT NOT NULL)");
+    window.api.executeQuery("INSERT INTO test (NAME) VALUES ('Adem')");
+    const res = window.api.executeSelect("SELECT * FROM test");
+    res.then(
+      function (value) {
+        for (const item of value) {
+          addParagraph(item.NAME);
+        }
+      }
+    );   
+  </script>
+</body>
+
+</html>
