@@ -6,8 +6,7 @@ function addParagraph(text) {
 }
 window.api.executeQuery("CREATE TABLE IF NOT EXISTS test (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT NOT NULL)");
 window.api.executeQuery("INSERT INTO test (NAME) VALUES ('Adem')");
-const res = window.api.executeSelect("SELECT * FROM test");
-res.then(
+window.api.executeSelect("SELECT * FROM test").then(
     (value) => {
         for (const item of value) {
             addParagraph(item.ID + " : " + item.NAME);
